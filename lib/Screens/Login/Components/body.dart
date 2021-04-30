@@ -16,17 +16,13 @@ class Body extends StatelessWidget {
 
   GlobalKey<FormState> _formkey = GlobalKey();
   String _email = '', _password = '';
-  final TextEditingController _emailController = TextEditingController();
-  final TextEditingController _passwordController = TextEditingController();
 
-  void _submit() {
-    /*final isok = _formkey.currentState.validate();
+  _submit() {
+    final isok = _formkey.currentState.validate();
     print('ftom isok $isok');
     if (isok) {
       return print("email :$_email password : $_password");
-    }*/
-    print('email : ${_emailController.text}, password : ${_passwordController.text}');
-
+    }
   }
 
   @override
@@ -91,7 +87,6 @@ class Body extends StatelessWidget {
                 children: <Widget>[
                   Positioned(
                     child: RoundedInputField(
-                      controller: _emailController,
                       hintText: "Entrez votre email",
                       onChanged: (value) {},
                       icon: Icons.email,
@@ -104,13 +99,14 @@ class Body extends StatelessWidget {
                       },
                     ),
                   ),
-                  RoundedPasswordField(onChanged: (value) {}, controller: _passwordController),
+                  RoundedPasswordField(onChanged: (value) {}),
                   SizedBox(height: size.height * 0.02),
                   RoundedButton(
                       text: 'LOGIN',
                       color: kPrimaryColor,
                       textColor: Colors.white,
-                      onPressed: _submit,/*() => _onLoginHomePagePressed(context)*/
+                      onPressed: () => Navigator.of(context).pushReplacementNamed("Homepage")
+                      //_onLoginHomePagePressed(context)
                         ),
                   SizedBox(height: size.height * 0.02),
                   Row(
@@ -121,7 +117,7 @@ class Body extends StatelessWidget {
                       GestureDetector(
                           onTap: () {
                             Navigator.of(context)
-                                .pushReplacementNamed("formulaire");
+                                .pushNamed("formulaire");
                           },
                           child: Text("cliquer ici",
                               style: TextStyle(

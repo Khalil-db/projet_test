@@ -6,7 +6,12 @@ import 'package:gestion_docs_fpo/Screens/Welcome/Components/background.dart';
 
 import '../../../constants.dart';
 
-class Body extends StatelessWidget {
+class Body extends StatefulWidget {
+  @override
+  _BodyState createState() => _BodyState();
+}
+
+class _BodyState extends State<Body> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -26,7 +31,8 @@ class Body extends StatelessWidget {
               text: 'LOGIN',
               color: kPrimaryColor,
               textColor: Colors.white,
-              onPressed: () => _onLoginButtonPressed(context)
+              onPressed: () => Navigator.of(context).pushNamed("Login")
+              //_onLoginButtonPressed(context)
               ),
           RoundedButton(
             text: 'J\'ai pas de compte',
@@ -34,7 +40,7 @@ class Body extends StatelessWidget {
             textColor: Colors.black,
             onPressed: () {
               Navigator.of(context)
-                      .pushReplacementNamed("formulaire");
+                      .pushNamed("formulaire");
 
             },
           ),
