@@ -105,7 +105,8 @@ class Body extends StatelessWidget {
                       text: 'LOGIN',
                       color: kPrimaryColor,
                       textColor: Colors.white,
-                      onPressed: () => _onLoginHomePagePressed(context)
+                      onPressed: () => Navigator.of(context).pushReplacementNamed("Homepage")
+                      //_onLoginHomePagePressed(context)
                         ),
                   SizedBox(height: size.height * 0.02),
                   Row(
@@ -116,7 +117,7 @@ class Body extends StatelessWidget {
                       GestureDetector(
                           onTap: () {
                             Navigator.of(context)
-                                .pushReplacementNamed("formulaire");
+                                .pushNamed("formulaire");
                           },
                           child: Text("cliquer ici",
                               style: TextStyle(

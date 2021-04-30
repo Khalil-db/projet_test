@@ -4,22 +4,30 @@ import '../constants.dart';
 
 
 
-class RoundedPasswordField extends StatelessWidget {
-  const RoundedPasswordField({
+class RoundedPasswordField extends StatefulWidget {
+   RoundedPasswordField({
     Key key,
     this.onChanged,
+    
     
   }) : super(key: key);
 
   final ValueChanged<String> onChanged;
+  
+
+  @override
+  _RoundedPasswordFieldState createState() => _RoundedPasswordFieldState();
+}
+
+class _RoundedPasswordFieldState extends State<RoundedPasswordField> {
+  bool x = true;
   @override
   Widget build(BuildContext context) {
 
-    
     return TextFieldContainer(
       
        child: TextField(
-        obscureText:true, 
+        obscureText:this.x, 
         decoration: InputDecoration(
             hintText: "Entez votre mot de passe",
             labelText: "mot de passe",
@@ -29,9 +37,12 @@ class RoundedPasswordField extends StatelessWidget {
               color: kPrimaryColor,
             ),
             suffixIcon:IconButton(
-              onPressed: (){},
-              icon:  Icon(
-              Icons.visibility,
+              onPressed: (){
+                setState(() => this.x =! this.x);
+                
+              },
+              icon:  Icon(this.x?
+              Icons.visibility_off:Icons.visibility,
               color: kPrimaryColor,
             ), 
               
@@ -39,7 +50,7 @@ class RoundedPasswordField extends StatelessWidget {
             ),
             border: InputBorder.none
         ),
-        onChanged: onChanged,
+        onChanged: widget.onChanged,
       ),
     );
   }
