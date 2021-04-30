@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:gestion_docs_fpo/Screens/home/navigation.dart';
 import 'package:gestion_docs_fpo/Screens/home/option_details.dart';
 import 'package:gestion_docs_fpo/Screens/home/options.dart';
-
+import './test3.dart';
+import './option_details.dart';
 import '../../constants.dart';
 
 class Body extends StatelessWidget {
@@ -11,16 +12,16 @@ class Body extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: kDefaultPaddin),
-          child: Text(
-            "Accueil",
-            style: Theme.of(context)
-                .textTheme
-                .headline5
-                .copyWith(fontWeight: FontWeight.bold),
-          ),
-        ),
+        // Padding(
+        //   padding: const EdgeInsets.symmetric(horizontal: kDefaultPaddin),
+        //   child: Text(
+        //     "Accueil",
+        //     style: Theme.of(context)
+        //         .textTheme
+        //         .headline5
+        //         .copyWith(fontWeight: FontWeight.bold),
+        //   ),
+        // ),
         Navigation(),
         Expanded(
           child: Padding(
@@ -35,13 +36,13 @@ class Body extends StatelessWidget {
                 ),
                 itemBuilder: (context, index) => OptionDetails(
                   option: options[index],
-                  onPressed: () {}/*=> Navigator.push(
+                  onPressed: ()  => Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder: (context) => DetailsScreen(
-                          product: products[index],
+                          option: options[index],
                         ),
-                      ))*/,
+                      )),
                 )),
           ),
         ),

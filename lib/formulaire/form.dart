@@ -6,6 +6,7 @@ import 'package:gestion_docs_fpo/Common_Compenents/rounded_input_field.dart';
 import 'package:gestion_docs_fpo/Common_Compenents/rounded_password_field.dart';
 import 'package:gestion_docs_fpo/Common_Compenents/text_field_container.dart';
 import 'package:gestion_docs_fpo/Screens/Login/Components/background.dart';
+import 'package:gestion_docs_fpo/Screens/Login/login_screen.dart';
 import 'package:gestion_docs_fpo/constants.dart';
 
 
@@ -56,12 +57,12 @@ class Forme extends StatelessWidget {
 
             //SvgPicture.asset("assets/icons/login.svg",height: size.height * 0.25),
             SizedBox(height: size.height * 0.02),
-            RoundedInputField(hintText: "Entrez votre Nom et Prénom", onChanged: (value) {},icon: Icons.person,label: 'Nom & Prénom',
+            RoundedInputField(hintText: "Entrez votre Nom et Prénom", onChanged: (text) {_email=text;},icon: Icons.person,label: 'Nom & Prénom',
                               validator: (text){
                                   if(text.trim().length==0){return 'le champ est vide';}
                                   return null;
              },),
-            RoundedInputField(hintText: "Entrez votre Email", onChanged: (value) {},icon: Icons.email,label: 'Email',
+            RoundedInputField(hintText: "Entrez votre Email", onChanged: (text) {_password=text;},icon: Icons.email,label: 'Email',
                                validator: (text){
                                   if(text.trim().length==0){return 'le champ est vide';}
                                   return null;
@@ -90,4 +91,17 @@ class Forme extends StatelessWidget {
       
     );
   }
+  // _onEnvoyerPressed(context) {
+  //   Navigator.push(
+  //       context,
+  //       MaterialPageRoute(
+  //           fullscreenDialog: true,
+  //           builder: (context) {
+  //             return LoginScreen();
+  //           }
+  //       )
+  //   );
+  // }
 }
+
+
